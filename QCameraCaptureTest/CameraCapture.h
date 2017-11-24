@@ -13,6 +13,7 @@
 #include "CameraInterface.h"
 
 class QLabel;
+class QtCameraCapture;
 
 class CameraCapture : public QThread
 {
@@ -29,6 +30,8 @@ private:
 	unsigned long					m_ulCaptureTick;				//采集数据的时间戳
 	bool							m_bTerminate;
 	int								m_nDeviceIndex;					//要开启的设备序列号
+
+	QtCameraCapture*				m_pCameraCapture;
 	QLabel*							m_labelShow;					//
 
 };

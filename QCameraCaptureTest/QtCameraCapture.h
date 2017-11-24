@@ -21,9 +21,16 @@ public:
 
 	virtual QList<QVideoFrame::PixelFormat> supportedPixelFormats(QAbstractVideoBuffer::HandleType handleType = QAbstractVideoBuffer::NoHandle) const;
 	virtual bool present(const QVideoFrame &frame);
+
+signals:
+	void captureFrame(const QImage& image);
 };
 
-class QtCameraCapture : public CameraInterface
+class QCamera;
+class QCameraImageCapture;
+class QLabel;
+
+class QtCameraCapture : public QObject, public CameraInterface
 {
 	Q_OBJECT
 public:
@@ -31,12 +38,18 @@ public:
 	virtual ~QtCameraCapture();
 
 	//开始采集
-	virtual void CameraCaptureStart(int nIndex = 0, std::function<void(unsigned char*, unsigned char*, int, int)> funcSendData = nullptr);
 	virtual void CameraCaptureStart(int nIndex = 0, void* hWnd = nullptr);
 	//重启摄像头采集，以之前的参数
 	virtual void CameraCaptureRestart();
 	//停止采集
 	virtual void CameraCaptureStop();
+
+public slots:
+	void onImageCaptured(const QImage& image);
+
+private:
+	QCamera*						m_pCamera;
+	QLabel*							m_label;
 };
 
 #endif // _CAMERA_CAPTURE_H__
