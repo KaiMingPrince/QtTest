@@ -23,12 +23,12 @@ public:
 	virtual bool present(const QVideoFrame &frame);
 
 signals:
-	void captureFrame(const QImage& image);
+	void presentFrame(const QImage& image);
 };
 
 class QCamera;
 class QCameraImageCapture;
-class QLabel;
+#include <QReadWriteLock>
 
 class QtCameraCapture : public QObject, public CameraInterface
 {
@@ -43,13 +43,16 @@ public:
 	virtual void CameraCaptureRestart();
 	//停止采集
 	virtual void CameraCaptureStop();
+	virtual bool GetCapture(std::vector<uchar>& vData, int& nWidth, int& nHeight);
 
 public slots:
-	void onImageCaptured(const QImage& image);
+	void onImagePresent(const QImage& image);
 
 private:
 	QCamera*						m_pCamera;
-	QLabel*							m_label;
+	QWidget*						m_widget;
+	QImage							m_imageBuffer;
+	QReadWriteLock					m_lock;
 };
 
 #endif // _CAMERA_CAPTURE_H__

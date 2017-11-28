@@ -64,6 +64,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_QtCameraCapture.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="CVCameraCapture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="QCameraCaptureTest.qrc">
@@ -78,6 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CameraInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CVCameraCapture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

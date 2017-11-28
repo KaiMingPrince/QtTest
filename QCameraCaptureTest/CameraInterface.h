@@ -9,6 +9,8 @@
 #ifndef _CAMERA_INTERFACE_H__
 #define _CAMERA_INTERFACE_H__
 
+#include <vector>
+
 class CameraInterface
 {
 public:
@@ -18,6 +20,7 @@ public:
 	virtual void CameraCaptureStart(int nIndex = 0, void* hWnd = nullptr) = 0;
 	virtual void CameraCaptureRestart() = 0;
 	virtual void CameraCaptureStop() = 0;
+	virtual bool GetCapture(std::vector<unsigned char>& vData, int& nWidth, int& nHeight) = 0;
 };
 
 #endif //_CAMERA_INTERFACE_H__

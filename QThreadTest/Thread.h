@@ -18,20 +18,7 @@ public:
 
 protected:
 	virtual void run();
-};
 
-class SubThread : public QThread
-{
-	Q_OBJECT
-
-public:
-	SubThread(QObject *parent = Q_NULLPTR);
-	~SubThread();
-
-protected:
-	virtual void run();
-	
 private:
-	QMutex		m_mutex;
-	bool		m_bCanPause;
+	QMutex m_mutex;
 };

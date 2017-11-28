@@ -1,7 +1,7 @@
 #include "Thread.h"
 
 Thread::Thread(QObject *parent)
-	: QThread(parent),m_bCanPause(true)
+	: QThread(parent)
 {
 }
 
@@ -11,17 +11,12 @@ Thread::~Thread()
 
 void Thread::Pause()
 {
-	if (m_bCanPause)
-	{
-		m_bCanPause = false;
-		m_mutex.lock();
-		printf("Thread Pause\n");
-	}
+	if (m_mutex.tryLock(1));
+	printf("Thread Pause\n");
 }
 
 void Thread::Resume()
 {
-	m_bCanPause = true;
 	m_mutex.unlock();
 	printf("Thread Resume\n");
 }
