@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QThreadTest", "QThreadTest\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QCameraCaptureTest", "QCameraCaptureTest\QCameraCaptureTest.vcxproj", "{03A3CC8B-0B91-4CEF-801F-3119C7674A13}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CameraInterface", "QCameraCaptureTest\CameraInterface\CameraInterface.vcxproj", "{CDE44B75-CFFD-4D74-BCAE-D82B491A278B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -21,6 +23,10 @@ Global
 		{03A3CC8B-0B91-4CEF-801F-3119C7674A13}.Debug|x86.Build.0 = Debug|Win32
 		{03A3CC8B-0B91-4CEF-801F-3119C7674A13}.Release|x86.ActiveCfg = Release|Win32
 		{03A3CC8B-0B91-4CEF-801F-3119C7674A13}.Release|x86.Build.0 = Release|Win32
+		{CDE44B75-CFFD-4D74-BCAE-D82B491A278B}.Debug|x86.ActiveCfg = Debug|Win32
+		{CDE44B75-CFFD-4D74-BCAE-D82B491A278B}.Debug|x86.Build.0 = Debug|Win32
+		{CDE44B75-CFFD-4D74-BCAE-D82B491A278B}.Release|x86.ActiveCfg = Release|Win32
+		{CDE44B75-CFFD-4D74-BCAE-D82B491A278B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

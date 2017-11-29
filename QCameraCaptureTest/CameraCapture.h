@@ -10,10 +10,10 @@
 #define _CAMERA_CAPTURE_H__
 
 #include <QThread>
-#include "CameraInterface.h"
+#include <memory>
 
 class QLabel;
-class QtCameraCapture;
+class CameraInterface;
 
 class CameraCapture : public QThread
 {
@@ -22,17 +22,19 @@ public:
 	CameraCapture(QObject* object = 0);
 	virtual ~CameraCapture();
 
+	void Show(const std::vector<uchar>& vData, int nWidth, int nHeight);
+
 protected:
 	virtual void run();
 
 private:	
-	int								m_nInterval;					//摄像头采集数据的间隔(由下层传递的帧率控制)
-	unsigned long					m_ulCaptureTick;				//采集数据的时间戳
-	bool							m_bTerminate;
-	int								m_nDeviceIndex;					//要开启的设备序列号
+	int									m_nInterval;					//摄像头采集数据的间隔(由下层传递的帧率控制)
+	unsigned long						m_ulCaptureTick;				//采集数据的时间戳
+	bool								m_bTerminate;
+	int									m_nDeviceIndex;					//要开启的设备序列号
 
-	QtCameraCapture*				m_pCameraCapture;
-	QLabel*							m_labelShow;					//
+	std::shared_ptr<CameraInterface>	m_pCameraCapture;
+	QLabel*								m_labelShow;
 
 };
 

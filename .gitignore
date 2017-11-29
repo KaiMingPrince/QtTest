@@ -38,3 +38,4 @@
 *.opendb
 QThreadTest/.vs/QThreadTest/v14/.suo
 .vs/QtTest/v14/.suo
+*.exp
